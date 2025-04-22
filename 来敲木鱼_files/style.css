@@ -1,0 +1,380 @@
+@import url('https://fonts.font.im/css?family=Pacifico|Roboto');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+}
+
+:root {
+    font-weight: bold;
+    --font: 'Roboto', sans-serif;
+    --logo-font: 'Pacifico', cursive;
+    --roundness: 0.5rem;
+    --bg-color: #fff;
+    --main-color: #eee;
+    --caret-color: #eee;
+    --sub-color: #444;
+    --text-color: #eee;
+}
+
+body {
+    /* background-color: var(--bg-color); */
+    background-image: url('../assets/feng2.jpg');
+    background-size: cover;
+    -webkit-backdrop-filter: blur(10px); /* Safari浏览器兼容 */
+    backdrop-filter: blur(8px); /* 模糊效果 */
+    color: var(--text-color);
+    font-family: var(--font);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.textButton {
+    display: flex;
+    align-content: center;
+    color: var(--sub-color);
+    border: none;
+    border-radius: var(--roundness);
+    cursor: pointer;
+    height: min-content;
+    width: min-content;
+    text-align: center;
+    padding: .5rem;
+    font-size: 1rem;
+    transition: .125s;
+}
+
+.textButton .text {
+    margin-left: .4rem;
+}
+
+.centerContent {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 4.5rem;
+}
+
+#top {
+    display: flex;
+    flex-direction: column;
+}
+
+#top .logo {
+    display: flex;
+    align-items: center;
+    font-size: 2.5rem;
+    font-family: var(--logo-font);
+    font-weight: normal;
+    cursor: pointer;
+}
+
+#top .logo .text {
+    position: relative;
+    margin-left: .5rem;
+    line-height: 1rem;
+}
+
+#top .logo .text .top {
+    font-size: .65rem;
+    line-height: .65rem;
+    position: absolute;
+    top: 1rem;
+    left: .3rem;
+    color: var(--sub-color);
+}
+#top .logo .maple-logo{
+    background-image: url('../assets/mapleLogo.png');
+    background-size: cover;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-top: 0.2rem;
+}
+
+#center {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+}
+
+.score {
+    font-family: var(--logo-font);
+    text-align: center;
+    width: 100%;
+    font-size: 10rem;
+    line-height: 10rem;
+}
+
+.score .count {
+    width: min-content;
+    transition: all .1s cubic-bezier(.5, .35, .15, 1.4);
+    transform: scale(1);
+    margin: 0 auto;
+}
+
+.score .subtitle {
+    font-size: 2rem;
+    color: #fff;
+    line-height: 2.5rem;
+}
+
+#center {
+    display: flex;
+    justify-content: center;
+}
+
+#center .woodenfish {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .1s cubic-bezier(.5, .35, .15, 1.4);
+    transform: scale(1);
+    width: 451px;
+    height: 336px;
+    /* background-image:url('https://1t0rres1.github.io/qiaomuyu/assets/tools_muyu.png'); */
+    background-image: url('../assets/狗头.png');
+    background-size: cover;
+    position: relative;
+}
+
+#bottom {
+    color: var(--sub-color);
+    font-size: .9rem;
+    line-height: 1.5rem;
+    padding: 0 5px;
+    position: relative;
+    text-align: center;
+}
+
+#bottom .keyTips {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+    color: #fff;
+}
+#bottom .keyTips key {
+    color: var(--bg-color);
+    background-color: var(--sub-color);
+    margin: .3rem .45rem;
+    border-radius: .3rem;
+    padding: .2rem .5rem;
+    font-size: .7rem;
+    line-height: .7rem;
+}
+
+#bottom .leftRight,
+#bottom .left,
+#bottom .right {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#bottom .textButton:hover {
+    color: var(--text-color);
+}
+
+.input-switch {
+    /* 不让其input占位 */
+    display: none;
+}
+
+.label-switch {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    height: 1.5rem;
+    width: 3rem;
+    border-radius: 50px;
+    background-color: rgb(185, 184, 184);
+    margin: 0 8px;
+    transition: 0.5s;
+}
+
+/* input-switch:checked  就是选中的伪类*/
+.input-switch:checked+.label-switch {
+    background-color: #35B926;
+    transition: 1s;
+}
+
+.label-switch .ball {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 50%;
+    background-color: rgb(250, 250, 250);
+    animation: offSwitch 0.25s ease-in forwards;
+    transition: all 0.25s cubic-bezier(0.1, 0.7, 1.0, 0.1);
+}
+
+.input-switch:checked+.label-switch .ball {
+    animation: onSwitch 0.25s ease-in forwards;
+    transition: all 0.25s cubic-bezier(0.1, 0.7, 1.0, 0.1);
+}
+
+.merit {
+    /* 让它绝对定位，在不同视口下都相对正常地显示 */
+    position: absolute;
+    width: 250px;
+    height: 350px;
+    left: -50px;
+    top: -60px;
+    text-align: right;
+    /* 添加渐变消失动画 */
+    animation: fadeOut 3s forwards; 
+}
+.merit p {
+    margin: 15px; 
+    font-weight: bold;
+    /* 颜色渐变效果 */
+    transition: all 4s ease; 
+}
+.merit .big {
+    font-size: 38px; 
+    color: #FF4F75;
+}
+.merit .medium {
+    font-size: 33px; 
+    color: #FF6173;
+}
+.merit .small {
+    font-size: 28px; 
+    color: rgb(238, 198, 10);
+}
+
+@keyframes fadeOut {
+	to {
+	    opacity: 0;
+        top: -350px;
+        left: -500px;
+	}
+}
+
+@keyframes onSwitch {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(1.5rem);
+    }
+}
+
+@keyframes offSwitch {
+    0% {
+        transform: translateX(1.5rem);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.leaf {
+    position: absolute;
+    width: 50px;
+    height: auto;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    z-index: 3;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10%) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.falling {
+    animation: fall linear forwards;
+}
+
+#stick {
+    width: 339px;
+    height: 163px;
+    background-image: url('../assets/猫棒2.png');
+    background-size: cover;
+    transform-origin: 50% 100%;  /* 底部中心为旋转轴心 */
+    margin-left: 160px;
+    z-index: 2;
+}
+
+.hit-effect {
+    animation: target-hit 0.2s;
+}
+
+@keyframes swing {
+    0% { transform: rotate(0deg) translateY(0); }
+    50% { 
+        transform: rotate(-35deg) translateY(40px);  /* 网页5的运动曲线 */
+        filter: brightness(120%);
+    }
+    100% { transform: rotate(0deg) translateY(80px); }
+}
+
+@keyframes target-hit {
+    50% { transform: scale(0.9); }
+}
+
+@media only screen and (max-width: 768px) {
+    .centerContent {
+        padding: 1rem 1rem;
+    }
+
+    #top {
+        align-items: center;
+    }
+
+    #top .text {
+        font-size: 2rem;
+
+    }
+
+    #top .logo .text .top {
+        font-size: .6rem;
+        line-height: .6rem;
+        top: .6rem;
+        left: .1rem;
+    }
+
+    .score .subtitle {
+        font-size: 1.2rem;
+        line-height: 2rem;
+    }
+
+    #bottom .leftRight {
+        margin-top: 2rem;
+    }
+
+    #center .woodenfish {
+        width: 80%;
+        height: 0;
+        padding-top: 60%;
+    }
+    #stick {
+        width: 50%;
+        height: 0;
+        padding-top: 24%;
+    }
+}

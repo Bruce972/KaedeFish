@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>枫叶飘落特效</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: #f0f0f0;
+        }
+
+        #btnContainer {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            background: #c72f2f;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #a82525;
+            transform: translateY(-2px);
+        }
+
+        .leaf {
+            position: absolute;
+            width: 50px;
+            height: auto;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10%) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .falling {
+            animation: fall linear forwards;
+        }
+    </style>
+</head>
+<body>
+    <div id="btnContainer">
+        <button onclick="toggleLeaves()">开启枫叶雨</button>
+    </div>
+
+    <script>
+        let isRaining = false;
+        let leaves = [];
+        const leafImages = [
+            'https://example.com/leaf1.png',  // 替换为你的枫叶图片路径
+            'https://example.com/leaf2.png',
+            'https://example.com/leaf3.png'
+        ];
+
+        function createLeaf() {
+            const leaf = document.createElement('img');
+            leaf.className = 'leaf';
+            leaf.src = leafImages[Math.floor(Math.random() * leafImages.length)];
+            
+            // 随机初始位置
+            leaf.style.left = Math.random() * 100 + '%';
+            
+            // 随机动画参数
+            const duration = 8 + Math.random() * 4;  // 8-12秒
+            const delay = Math.random() * 3;         // 0-3秒延迟
+            const rotate = Math.random() * 360;     // 初始旋转角度
+            
+            leaf.style.animation = `
+                fall ${duration}s 0s linear forwards,
+                fadeIn 0.5s forwards
+            `;
+
+            document.body.appendChild(leaf);
+            // leaves.push(leaf);
+			setTimeout(() => leaf.remove(), 13000);
+        }
+
+        function toggleLeaves() {
+            const btn = document.querySelector('button');
+            isRaining = !isRaining;
+
+            if (isRaining) {
+                btn.textContent = '停止枫叶雨';
+                // 创建15片枫叶
+                for (let i = 0; i < 10; i++) {
+                    createLeaf();
+                }
+                // 持续生成枫叶
+                leafInterval = setInterval(() => {
+                    createLeaf();
+                }, 500);
+            } else {
+                btn.textContent = '开启枫叶雨';
+                // 移除所有枫叶并清除定时器
+                clearInterval(leafInterval);
+                // leaves.forEach(leaf => {
+                //     leaf.style.animation = 'none';
+                //     leaf.style.opacity = '0';
+                //     setTimeout(() => leaf.remove(), 1000);
+                // });
+                // leaves = [];
+            }
+        }
+    </script>
+</body>
+</html>
