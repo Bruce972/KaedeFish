@@ -93,11 +93,13 @@ body {
     color: var(--sub-color);
 }
 #top .logo .maple-logo{
-    background-image: url('../assets/mapleLogo.png');
+    background-image: url('../assets/duzui.png');
     background-size: cover;
     width: 2.5rem;
-    height: 2.5rem;
+    height: 2.8rem;
     margin-top: 0.2rem;
+    margin-left: 4px;
+    transition: 0.3s;
 }
 
 #center {
@@ -111,8 +113,8 @@ body {
     font-family: var(--logo-font);
     text-align: center;
     width: 100%;
-    font-size: 10rem;
-    line-height: 10rem;
+    font-size: 8rem;
+    line-height: 8rem;
 }
 
 .score .count {
@@ -338,6 +340,12 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+    body {
+        background-image: url('../assets/feng3.jpg');
+        -webkit-backdrop-filter: blur(4px); /* Safari浏览器兼容 */
+        backdrop-filter: blur(4px); /* 模糊效果 */
+        /* background-position: center; */
+    }
     .centerContent {
         padding: 1rem 1rem;
     }
@@ -376,5 +384,18 @@ body {
         width: 50%;
         height: 0;
         padding-top: 24%;
+    }
+    .merit{
+        left: -100px;
+        /* top: -100px; */
+    }
+    .merit .big {
+        font-size: 1.5rem; 
+    }
+    .merit .medium {
+        font-size: 1.2rem; 
+    }
+    .merit .small {
+        font-size: 1rem; 
     }
 }

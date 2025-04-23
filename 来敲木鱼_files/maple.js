@@ -32,7 +32,6 @@ let isRaining = false;
 
         function toggleLeaves() {
             isRaining = !isRaining;
-
             if (isRaining) {
                 // 创建15片枫叶
                 for (let i = 0; i < 10; i++) {

@@ -2,7 +2,7 @@ console.clear();
 
 // 本地:
 const sound = new Howl({src: ['./assets/sound.mp3']});
-const bgm = new Howl({src: ['./assets/枫.flac'], html5:true, loop: true, volume: 0.2});
+const bgm = new Howl({src: ['./assets/feng.mp3'], html5:true, loop: true, volume: 0.2});
 const happyBgm = new Howl({src: ['./assets/好运来.ogg'], html5:true, loop: true, volume: 0.2});
 
 // 网络:
@@ -29,6 +29,7 @@ let countFlag = false;
 function startAnimate() {
     $(".count").css("transform", "scale(1.2)");
     $(".woodenfish").css('transform', 'scale(0.99)');
+    $("#kaede").css('transform', 'scale(1.2)');
     
     clickHistory.push(Date.now());
     animateStick();
@@ -37,6 +38,7 @@ function startAnimate() {
 function initAnimate() {
     $(".count").css("transform", "scale(1)");
     $(".woodenfish").css('transform', 'scale(1)');
+    $("#kaede").css('transform', 'scale(1)');
      pushText()
 }
 
