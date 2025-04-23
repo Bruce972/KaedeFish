@@ -58,6 +58,9 @@ function pushText(){
 function counter() {
     countFlag = true;
     count++;
+    if(count>100){
+        $(".smoke").css('opacity', '1')
+    }
     $(".count").html(count);
     startAnimate();
     if (ringId != 0) {

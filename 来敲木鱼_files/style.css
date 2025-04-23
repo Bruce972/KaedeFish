@@ -150,6 +150,17 @@ body {
     position: relative;
 }
 
+#center .woodenfish .smoke{
+    opacity: 0;
+    position: absolute;    
+    width: 400px;
+    height: 400px;
+    top: -240px;
+    left: -50px;
+    transform: rotate(-30deg);
+    transition: 1s;
+}
+
 #bottom {
     color: var(--sub-color);
     font-size: .9rem;
@@ -397,5 +408,11 @@ body {
     }
     .merit .small {
         font-size: 1rem; 
+    }
+    #center .woodenfish .smoke{   
+        width: 200px;
+        height: 200px;
+        top: -120px;
+        left: 15px;
     }
 }
